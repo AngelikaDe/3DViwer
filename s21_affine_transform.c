@@ -17,6 +17,44 @@ void centralize(data *d) {
 
   for (unsigned int i = 0; i < d->vertices_count * 3; i++) {
     d->vertices[i] *= scaling;
-    printf("HERE, %.1f\n", d->vertices[i]);
+  }
+}
+
+void move(data *d, double value_x, double value_y, double value_z) {
+  for (unsigned int i = 0; i < d->vertices_count * 3; i += 3) {
+    d->vertices[i] += value_x;
+    d->vertices[i + 1] += value_y;
+    d->vertices[i + 2] += value_z;
+  }
+}
+
+void scale(data *d, double value) {
+  for (unsigned int i = 0; i < d->vertices_count * 3; i++) {
+    d->vertices[i] *= value;
+  }
+}
+
+void rotate(data *d, double value_angle, int flag) {
+  if (flag == 1) {  // X
+    for (unsigned int i = 0; i < d->vertices_count * 3; i += 3) {
+      d->vertices[i + 1] = cos(value_angle) * d->vertices[i + 1] +
+                           (-cos(value_angle)) * d->vertices[i + 2];
+      d->vertices[i + 2] = sin(value_angle) * d->vertices[i + 1] +
+                           cos(value_angle) * d->vertices[i + 2];
+    }
+  } else if (flag == 2) {  // Y
+    for (unsigned int i = 0; i < d->vertices_count * 3; i += 3) {
+      d->vertices[i] = cos(value_angle) * d->vertices[i] +
+                       sin(value_angle) * d->vertices[i + 2];
+      d->vertices[i + 2] = -sin(value_angle) * d->vertices[i] +
+                           cos(value_angle) * d->vertices[i + 2];
+    }
+  } else if (flag == 3) {  // Z
+    for (unsigned int i = 0; i < d->vertices_count * 3; i += 3) {
+      d->vertices[i] = cos(value_angle) * d->vertices[i] +
+                       (-sin(value_angle)) * d->vertices[i + 1];
+      d->vertices[i + 1] = sin(value_angle) * d->vertices[i] +
+                           cos(value_angle) * d->vertices[i + 1];
+    }
   }
 }
