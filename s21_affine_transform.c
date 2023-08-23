@@ -1,6 +1,6 @@
 #include "s21_parser.h"
 
-void centralize(data *d) {
+void centr(model_data *d) {
   double max_value = 0.0;
   double scaling = 0.0;
   for (unsigned int i = 0; i < d->vertices_count * 3; i++) {
@@ -8,7 +8,6 @@ void centralize(data *d) {
       max_value = d->vertices[i];
     }
   }
-  printf("MAX_V %.1f\n", max_value);
   if (max_value > 1) {
     scaling = 1.0 / max_value;
   } else {
@@ -20,7 +19,7 @@ void centralize(data *d) {
   }
 }
 
-void move(data *d, double value_x, double value_y, double value_z) {
+void move(model_data *d, double value_x, double value_y, double value_z) {
   for (unsigned int i = 0; i < d->vertices_count * 3; i += 3) {
     d->vertices[i] += value_x;
     d->vertices[i + 1] += value_y;
@@ -28,13 +27,13 @@ void move(data *d, double value_x, double value_y, double value_z) {
   }
 }
 
-void scale(data *d, double value) {
+void scaling(model_data *d, double value) {
   for (unsigned int i = 0; i < d->vertices_count * 3; i++) {
     d->vertices[i] *= value;
   }
 }
 
-void rotate(data *d, double value_angle, int flag) {
+void rotate(model_data *d, double value_angle, int flag) {
   if (flag == 1) {  // X
     for (unsigned int i = 0; i < d->vertices_count * 3; i += 3) {
       d->vertices[i + 1] = cos(value_angle) * d->vertices[i + 1] +

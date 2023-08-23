@@ -10,10 +10,10 @@ typedef struct data {
   unsigned *triangle_coord;
   unsigned *square_coord;
   double *vertices;
-} data;
-int parser(int num_arg, const char *file_name);
-void centralize(data *d);
-void move(data *d, double value_x, double value_y, double value_z);
-void scale(data *d, double value);
-void rotate(data *d, double value_angle, int flag);
-void printData(const data *d);  // delete later
+} model_data;
+int parser(model_data *data, const char *file_name);
+void centr(model_data *d);
+void move(model_data *d, double value_x, double value_y, double value_z);
+void scaling(model_data *d, double value);
+void rotate(model_data *d, double value_angle, int flag);
+void printData(const model_data *d);  // delete later
