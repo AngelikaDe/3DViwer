@@ -34,6 +34,7 @@ int parser(model_data *data, const char *file_name) {
   while (fgets(buffer, sizeof(buffer), fptr) != NULL) {
     if (buffer[0] == 'v' && buffer[1] == ' ') {
       data->vertices_count += 1;
+      // printf("Vertices: %d\n", data->vertices_count);
     } else if (buffer[0] == 'f' && buffer[1] == ' ') {
       const char *delim = " ";
       char *tok = strtok(buffer, delim);
@@ -48,16 +49,21 @@ int parser(model_data *data, const char *file_name) {
       }
       if (i == 3) {
         data->triangle_cnt += 1;
+        // printf("triangle_cn: %d\n", data->triangle_cnt);
       } else if (i == 4) {
         data->square_cnt += 1;
+        // printf("square_cn: %d\n", data->square_cnt);
 
       } else {
-        return 1;
+        i = 0;
+        // return 1;
       }
       i = 0;
     }
   }
   fclose(fptr);
+  // printf("Here: %d, %d, %d \n", data->square_cnt, data->square_cnt,
+  //        data->vertices_count);
   data->vertices = calloc(data->vertices_count, 3 * sizeof(double));
   data->square_coord = calloc(data->square_cnt, 4 * sizeof(int));
   data->triangle_coord = calloc(data->triangle_cnt, 3 * sizeof(int));
@@ -107,6 +113,7 @@ int parser(model_data *data, const char *file_name) {
     }
   }
   centr(data);
+  // printData(data);
   return 0;
 }
 
@@ -117,7 +124,7 @@ int parser(model_data *data, const char *file_name) {
 //                      .triangle_coord = NULL,
 //                      .square_coord = NULL,
 //                      .vertices = NULL};
-//   const char *objFileName = "cube.obj";
+//   const char *objFileName = "./obj_files/hydrant.obj";
 
 //   parser(&data, objFileName);
 //   return 0;

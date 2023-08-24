@@ -33,13 +33,46 @@ private slots:
 
     void on_change_color_background_pushButton_clicked();
 
-    void on_scale_spinBox_valueChanged(int arg1);
-
     void on_parallel_radioButton_clicked();
 
     void on_central_radioButton_clicked();
 
+    void on_x_axis_translate_spinBox_valueChanged(int arg1);
+
+    void on_y_axis_translate_spinBox_valueChanged(int arg1);
+
+    void on_z_axis_translate_spinBox_valueChanged(int arg1);
+
+    void on_x_axis_rotate_spinBox_valueChanged(int arg1);
+
+    void on_y_axis_rotate_spinBox_valueChanged(int arg1);
+
+    void on_z_axis_rotate_spinBox_valueChanged(int arg1);
+
+    void on_scale_SpinBox_valueChanged(double arg1);
+
+    void on_solid_radioButton_clicked();
+
+    void on_dashed_radioButton_clicked();
+
+    void on_display_circle_radioButton_clicked();
+
+    void on_display_square_radioButton_clicked();
+
+    void on_display_none_radioButton_clicked();
+
+    void on_save_img_pushButton_clicked();
+
+    void on_save_gif_pushButton_clicked();
+
+    void save_video();
+
 private:
     Ui::MainWindow *ui;
+    QGifImage *gif;
+    QImage *frame;
+    QTimer *timer;
+    int count;
+    QString file_name;
 };
 #endif // MAINWINDOW_H

@@ -19,7 +19,7 @@ void centr(model_data *d) {
   }
 }
 
-void move(model_data *d, double value_x, double value_y, double value_z) {
+void move_obj(model_data *d, double value_x, double value_y, double value_z) {
   for (unsigned int i = 0; i < d->vertices_count * 3; i += 3) {
     d->vertices[i] += value_x;
     d->vertices[i + 1] += value_y;
@@ -36,8 +36,8 @@ void scaling(model_data *d, double value) {
 void rotate(model_data *d, double value_angle, int flag) {
   if (flag == 1) {  // X
     for (unsigned int i = 0; i < d->vertices_count * 3; i += 3) {
-      d->vertices[i + 1] = cos(value_angle) * d->vertices[i + 1] +
-                           (-cos(value_angle)) * d->vertices[i + 2];
+      d->vertices[i + 1] = cos(value_angle) * d->vertices[i + 1] -
+                           sin(value_angle) * d->vertices[i + 2];
       d->vertices[i + 2] = sin(value_angle) * d->vertices[i + 1] +
                            cos(value_angle) * d->vertices[i + 2];
     }
@@ -50,8 +50,8 @@ void rotate(model_data *d, double value_angle, int flag) {
     }
   } else if (flag == 3) {  // Z
     for (unsigned int i = 0; i < d->vertices_count * 3; i += 3) {
-      d->vertices[i] = cos(value_angle) * d->vertices[i] +
-                       (-sin(value_angle)) * d->vertices[i + 1];
+      d->vertices[i] = cos(value_angle) * d->vertices[i] -
+                       sin(value_angle) * d->vertices[i + 1];
       d->vertices[i + 1] = sin(value_angle) * d->vertices[i] +
                            cos(value_angle) * d->vertices[i + 1];
     }
