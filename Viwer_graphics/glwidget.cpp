@@ -47,7 +47,6 @@ void GLWidget::paintGL()
    rotate_translate();
 
    glClearColor(back_red, back_green, back_blue, 0);
-   glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
    glVertexPointer(3, GL_DOUBLE, 0, data_model.vertices);
 
@@ -154,7 +153,7 @@ void GLWidget::create_settings(){
 void GLWidget::read_settings(){
     QSettings settings("MyViwer"); //read settings
     back_blue = settings.value("color_back_blue").toDouble();
-    back_red = settings.value("color_back_read").toDouble();
+    back_red = settings.value("color_back_red").toDouble();
     back_green = settings.value("color_back_green").toDouble();
 
     l_blue = settings.value("color_line_blue").toDouble();
@@ -164,7 +163,6 @@ void GLWidget::read_settings(){
     v_blue = settings.value("color_dots_blue").toDouble();
     v_green = settings.value("color_dots_green").toDouble();
     v_red = settings.value("color_dots_red").toDouble();
-
 }
 
 

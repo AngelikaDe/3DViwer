@@ -1,0 +1,33 @@
+\doxysection{s21\+\_\+parser.\+c File Reference}
+\hypertarget{s21__parser_8c}{}\label{s21__parser_8c}\index{s21\_parser.c@{s21\_parser.c}}
+{\ttfamily \#include \"{}s21\+\_\+parser.\+h\"{}}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{s21__parser_8c_a9cf934d1e3b7f8df33242befdd99c60c}{parser}} (\mbox{\hyperlink{structmodel__data}{model\+\_\+data}} \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{structdata}{data}}, const char \texorpdfstring{$\ast$}{*}file\+\_\+name)
+\begin{DoxyCompactList}\small\item\em Parses the model data from a file. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{s21__parser_8c_a9cf934d1e3b7f8df33242befdd99c60c}\label{s21__parser_8c_a9cf934d1e3b7f8df33242befdd99c60c} 
+\index{s21\_parser.c@{s21\_parser.c}!parser@{parser}}
+\index{parser@{parser}!s21\_parser.c@{s21\_parser.c}}
+\doxysubsubsection{\texorpdfstring{parser()}{parser()}}
+{\footnotesize\ttfamily int parser (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structmodel__data}{model\+\_\+data}} \texorpdfstring{$\ast$}{*}}]{data,  }\item[{const char \texorpdfstring{$\ast$}{*}}]{file\+\_\+name }\end{DoxyParamCaption})}
+
+
+
+Parses the model data from a file. 
+
+This function reads a file and parses the model data from it, populating the provided \doxylink{structmodel__data}{model\+\_\+data} struct.
+
+
+\begin{DoxyParams}{Parameters}
+{\em data} & A pointer to the \doxylink{structmodel__data}{model\+\_\+data} struct to populate. \\
+\hline
+{\em file\+\_\+name} & The name of the file to parse. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 if parsing is successful, 1 if there\textquotesingle{}s an error. 
+\end{DoxyReturn}

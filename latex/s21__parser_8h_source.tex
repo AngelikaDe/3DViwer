@@ -1,0 +1,29 @@
+\doxysection{s21\+\_\+parser.\+h}
+\hypertarget{s21__parser_8h_source}{}\label{s21__parser_8h_source}\mbox{\hyperlink{s21__parser_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#include\ <math.h>}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ <stdio.h>}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <stdlib.h>}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <string.h>}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00013\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structdata}{data}}\ \{}
+\DoxyCodeLine{00014\ \ \ \textcolor{keywordtype}{unsigned}\ \mbox{\hyperlink{structdata_a2207d4e86a1d51bbda731bfaab3f3c43}{vertices\_count}};\ \ }
+\DoxyCodeLine{00015\ \ \ \textcolor{keywordtype}{unsigned}\ \mbox{\hyperlink{structdata_a88f353feeeecca3db7ca1a7af0fdbd56}{triangle\_cnt}};\ \ \ \ }
+\DoxyCodeLine{00016\ \ \ \textcolor{keywordtype}{unsigned}\ \mbox{\hyperlink{structdata_aae2359b43d9f7f6dacdcf4667f72cb3f}{square\_cnt}};\ \ \ \ \ \ }
+\DoxyCodeLine{00017\ \ \ \textcolor{keywordtype}{unsigned}}
+\DoxyCodeLine{00018\ \ \ \ \ \ \ *\mbox{\hyperlink{structdata_a865219975d5d4a01e0d1f56615bc0076}{triangle\_coord}};\ \ }
+\DoxyCodeLine{00019\ \ \ \textcolor{keywordtype}{unsigned}\ *\mbox{\hyperlink{structdata_a4251c78fd1d6aa7e6b43150b85af1a48}{square\_coord}};\ \ }
+\DoxyCodeLine{00020\ \ \ \textcolor{keywordtype}{double}\ *\mbox{\hyperlink{structdata_add1c3dd2318aa6d227e7407eabdc1889}{vertices}};\ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00021\ \}\ \mbox{\hyperlink{s21__parser_8h_a979bffd4885180bf390a8381bb083c54}{model\_data}};}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00033\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{s21__parser_8h_a9cf934d1e3b7f8df33242befdd99c60c}{parser}}(\mbox{\hyperlink{structmodel__data}{model\_data}}\ *\mbox{\hyperlink{structdata}{data}},\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *file\_name);}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00042\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{s21__parser_8h_aaf09e823fd4fb7f7e1fa3b620778a5f5}{centr}}(\mbox{\hyperlink{structmodel__data}{model\_data}}\ *d);}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00055\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{s21__parser_8h_a4b50ad79054fceef0994ef93acd51bde}{move\_obj}}(\mbox{\hyperlink{structmodel__data}{model\_data}}\ *d,\ \textcolor{keywordtype}{double}\ value\_x,\ \textcolor{keywordtype}{double}\ value\_y,\ \textcolor{keywordtype}{double}\ value\_z);}
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00065\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{s21__parser_8h_a161b45c0579f3966ec4e8ea77b7d87bb}{scaling}}(\mbox{\hyperlink{structmodel__data}{model\_data}}\ *d,\ \textcolor{keywordtype}{double}\ value);}
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00077\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{s21__parser_8h_a6c538ccb1af30a94e8454e247e57cf01}{rotate}}(\mbox{\hyperlink{structmodel__data}{model\_data}}\ *d,\ \textcolor{keywordtype}{double}\ value\_angle,\ \textcolor{keywordtype}{int}\ flag);}
+
+\end{DoxyCode}

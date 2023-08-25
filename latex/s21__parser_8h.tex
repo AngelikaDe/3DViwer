@@ -1,0 +1,143 @@
+\doxysection{s21\+\_\+parser.\+h File Reference}
+\hypertarget{s21__parser_8h}{}\label{s21__parser_8h}\index{s21\_parser.h@{s21\_parser.h}}
+{\ttfamily \#include $<$math.\+h$>$}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structdata}{data}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \mbox{\hyperlink{structdata}{data}} \mbox{\hyperlink{s21__parser_8h_a979bffd4885180bf390a8381bb083c54}{model\+\_\+data}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{s21__parser_8h_a9cf934d1e3b7f8df33242befdd99c60c}{parser}} (\mbox{\hyperlink{structmodel__data}{model\+\_\+data}} \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{structdata}{data}}, const char \texorpdfstring{$\ast$}{*}file\+\_\+name)
+\begin{DoxyCompactList}\small\item\em Parses the model data from a file. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{s21__parser_8h_aaf09e823fd4fb7f7e1fa3b620778a5f5}{centr}} (\mbox{\hyperlink{structmodel__data}{model\+\_\+data}} \texorpdfstring{$\ast$}{*}d)
+\begin{DoxyCompactList}\small\item\em Centers the model vertices around the origin. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{s21__parser_8h_a4b50ad79054fceef0994ef93acd51bde}{move\+\_\+obj}} (\mbox{\hyperlink{structmodel__data}{model\+\_\+data}} \texorpdfstring{$\ast$}{*}d, double value\+\_\+x, double value\+\_\+y, double value\+\_\+z)
+\begin{DoxyCompactList}\small\item\em Moves the model object in 3D space. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{s21__parser_8h_a161b45c0579f3966ec4e8ea77b7d87bb}{scaling}} (\mbox{\hyperlink{structmodel__data}{model\+\_\+data}} \texorpdfstring{$\ast$}{*}d, double value)
+\begin{DoxyCompactList}\small\item\em Scales the model vertices uniformly. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{s21__parser_8h_a6c538ccb1af30a94e8454e247e57cf01}{rotate}} (\mbox{\hyperlink{structmodel__data}{model\+\_\+data}} \texorpdfstring{$\ast$}{*}d, double value\+\_\+angle, int flag)
+\begin{DoxyCompactList}\small\item\em Rotates the model vertices around a specified axis. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Typedef Documentation}
+\Hypertarget{s21__parser_8h_a979bffd4885180bf390a8381bb083c54}\label{s21__parser_8h_a979bffd4885180bf390a8381bb083c54} 
+\index{s21\_parser.h@{s21\_parser.h}!model\_data@{model\_data}}
+\index{model\_data@{model\_data}!s21\_parser.h@{s21\_parser.h}}
+\doxysubsubsection{\texorpdfstring{model\_data}{model\_data}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{structdata}{data}} \mbox{\hyperlink{structmodel__data}{model\+\_\+data}}}
+
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{s21__parser_8h_aaf09e823fd4fb7f7e1fa3b620778a5f5}\label{s21__parser_8h_aaf09e823fd4fb7f7e1fa3b620778a5f5} 
+\index{s21\_parser.h@{s21\_parser.h}!centr@{centr}}
+\index{centr@{centr}!s21\_parser.h@{s21\_parser.h}}
+\doxysubsubsection{\texorpdfstring{centr()}{centr()}}
+{\footnotesize\ttfamily void centr (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structmodel__data}{model\+\_\+data}} \texorpdfstring{$\ast$}{*}}]{d }\end{DoxyParamCaption})}
+
+
+
+Centers the model vertices around the origin. 
+
+This function scales the model vertices to center them around the origin.
+
+
+\begin{DoxyParams}{Parameters}
+{\em d} & A pointer to the \doxylink{structmodel__data}{model\+\_\+data} struct containing the vertices. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{s21__parser_8h_a4b50ad79054fceef0994ef93acd51bde}\label{s21__parser_8h_a4b50ad79054fceef0994ef93acd51bde} 
+\index{s21\_parser.h@{s21\_parser.h}!move\_obj@{move\_obj}}
+\index{move\_obj@{move\_obj}!s21\_parser.h@{s21\_parser.h}}
+\doxysubsubsection{\texorpdfstring{move\_obj()}{move\_obj()}}
+{\footnotesize\ttfamily void move\+\_\+obj (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structmodel__data}{model\+\_\+data}} \texorpdfstring{$\ast$}{*}}]{d,  }\item[{double}]{value\+\_\+x,  }\item[{double}]{value\+\_\+y,  }\item[{double}]{value\+\_\+z }\end{DoxyParamCaption})}
+
+
+
+Moves the model object in 3D space. 
+
+This function translates the model vertices by the specified values along the X, Y, and Z axes.
+
+
+\begin{DoxyParams}{Parameters}
+{\em d} & A pointer to the \doxylink{structmodel__data}{model\+\_\+data} struct containing the vertices. \\
+\hline
+{\em value\+\_\+x} & The translation value along the X axis. \\
+\hline
+{\em value\+\_\+y} & The translation value along the Y axis. \\
+\hline
+{\em value\+\_\+z} & The translation value along the Z axis. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{s21__parser_8h_a9cf934d1e3b7f8df33242befdd99c60c}\label{s21__parser_8h_a9cf934d1e3b7f8df33242befdd99c60c} 
+\index{s21\_parser.h@{s21\_parser.h}!parser@{parser}}
+\index{parser@{parser}!s21\_parser.h@{s21\_parser.h}}
+\doxysubsubsection{\texorpdfstring{parser()}{parser()}}
+{\footnotesize\ttfamily int parser (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structmodel__data}{model\+\_\+data}} \texorpdfstring{$\ast$}{*}}]{data,  }\item[{const char \texorpdfstring{$\ast$}{*}}]{file\+\_\+name }\end{DoxyParamCaption})}
+
+
+
+Parses the model data from a file. 
+
+This function reads a file and parses the model data from it, populating the provided \doxylink{structmodel__data}{model\+\_\+data} struct.
+
+
+\begin{DoxyParams}{Parameters}
+{\em data} & A pointer to the \doxylink{structmodel__data}{model\+\_\+data} struct to populate. \\
+\hline
+{\em file\+\_\+name} & The name of the file to parse. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 if parsing is successful, 1 if there\textquotesingle{}s an error. 
+\end{DoxyReturn}
+\Hypertarget{s21__parser_8h_a6c538ccb1af30a94e8454e247e57cf01}\label{s21__parser_8h_a6c538ccb1af30a94e8454e247e57cf01} 
+\index{s21\_parser.h@{s21\_parser.h}!rotate@{rotate}}
+\index{rotate@{rotate}!s21\_parser.h@{s21\_parser.h}}
+\doxysubsubsection{\texorpdfstring{rotate()}{rotate()}}
+{\footnotesize\ttfamily void rotate (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structmodel__data}{model\+\_\+data}} \texorpdfstring{$\ast$}{*}}]{d,  }\item[{double}]{value\+\_\+angle,  }\item[{int}]{flag }\end{DoxyParamCaption})}
+
+
+
+Rotates the model vertices around a specified axis. 
+
+This function rotates the model vertices around the specified axis by the given angle.
+
+
+\begin{DoxyParams}{Parameters}
+{\em d} & A pointer to the \doxylink{structmodel__data}{model\+\_\+data} struct containing the vertices. \\
+\hline
+{\em value\+\_\+angle} & The rotation angle in radians. \\
+\hline
+{\em flag} & The rotation axis flag\+: 1 for X, 2 for Y, 3 for Z. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{s21__parser_8h_a161b45c0579f3966ec4e8ea77b7d87bb}\label{s21__parser_8h_a161b45c0579f3966ec4e8ea77b7d87bb} 
+\index{s21\_parser.h@{s21\_parser.h}!scaling@{scaling}}
+\index{scaling@{scaling}!s21\_parser.h@{s21\_parser.h}}
+\doxysubsubsection{\texorpdfstring{scaling()}{scaling()}}
+{\footnotesize\ttfamily void scaling (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structmodel__data}{model\+\_\+data}} \texorpdfstring{$\ast$}{*}}]{d,  }\item[{double}]{value }\end{DoxyParamCaption})}
+
+
+
+Scales the model vertices uniformly. 
+
+This function scales the model vertices by the specified scaling factor.
+
+
+\begin{DoxyParams}{Parameters}
+{\em d} & A pointer to the \doxylink{structmodel__data}{model\+\_\+data} struct containing the vertices. \\
+\hline
+{\em value} & The scaling factor. \\
+\hline
+\end{DoxyParams}

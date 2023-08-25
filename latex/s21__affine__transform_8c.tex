@@ -1,0 +1,97 @@
+\doxysection{s21\+\_\+affine\+\_\+transform.\+c File Reference}
+\hypertarget{s21__affine__transform_8c}{}\label{s21__affine__transform_8c}\index{s21\_affine\_transform.c@{s21\_affine\_transform.c}}
+{\ttfamily \#include \"{}s21\+\_\+parser.\+h\"{}}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{s21__affine__transform_8c_aaf09e823fd4fb7f7e1fa3b620778a5f5}{centr}} (\mbox{\hyperlink{structmodel__data}{model\+\_\+data}} \texorpdfstring{$\ast$}{*}d)
+\begin{DoxyCompactList}\small\item\em Centers the model vertices around the origin. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{s21__affine__transform_8c_a4b50ad79054fceef0994ef93acd51bde}{move\+\_\+obj}} (\mbox{\hyperlink{structmodel__data}{model\+\_\+data}} \texorpdfstring{$\ast$}{*}d, double value\+\_\+x, double value\+\_\+y, double value\+\_\+z)
+\begin{DoxyCompactList}\small\item\em Moves the model object in 3D space. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{s21__affine__transform_8c_a161b45c0579f3966ec4e8ea77b7d87bb}{scaling}} (\mbox{\hyperlink{structmodel__data}{model\+\_\+data}} \texorpdfstring{$\ast$}{*}d, double value)
+\begin{DoxyCompactList}\small\item\em Scales the model vertices uniformly. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{s21__affine__transform_8c_a6c538ccb1af30a94e8454e247e57cf01}{rotate}} (\mbox{\hyperlink{structmodel__data}{model\+\_\+data}} \texorpdfstring{$\ast$}{*}d, double value\+\_\+angle, int flag)
+\begin{DoxyCompactList}\small\item\em Rotates the model vertices around a specified axis. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{s21__affine__transform_8c_aaf09e823fd4fb7f7e1fa3b620778a5f5}\label{s21__affine__transform_8c_aaf09e823fd4fb7f7e1fa3b620778a5f5} 
+\index{s21\_affine\_transform.c@{s21\_affine\_transform.c}!centr@{centr}}
+\index{centr@{centr}!s21\_affine\_transform.c@{s21\_affine\_transform.c}}
+\doxysubsubsection{\texorpdfstring{centr()}{centr()}}
+{\footnotesize\ttfamily void centr (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structmodel__data}{model\+\_\+data}} \texorpdfstring{$\ast$}{*}}]{d }\end{DoxyParamCaption})}
+
+
+
+Centers the model vertices around the origin. 
+
+This function scales the model vertices to center them around the origin.
+
+
+\begin{DoxyParams}{Parameters}
+{\em d} & A pointer to the \doxylink{structmodel__data}{model\+\_\+data} struct containing the vertices. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{s21__affine__transform_8c_a4b50ad79054fceef0994ef93acd51bde}\label{s21__affine__transform_8c_a4b50ad79054fceef0994ef93acd51bde} 
+\index{s21\_affine\_transform.c@{s21\_affine\_transform.c}!move\_obj@{move\_obj}}
+\index{move\_obj@{move\_obj}!s21\_affine\_transform.c@{s21\_affine\_transform.c}}
+\doxysubsubsection{\texorpdfstring{move\_obj()}{move\_obj()}}
+{\footnotesize\ttfamily void move\+\_\+obj (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structmodel__data}{model\+\_\+data}} \texorpdfstring{$\ast$}{*}}]{d,  }\item[{double}]{value\+\_\+x,  }\item[{double}]{value\+\_\+y,  }\item[{double}]{value\+\_\+z }\end{DoxyParamCaption})}
+
+
+
+Moves the model object in 3D space. 
+
+This function translates the model vertices by the specified values along the X, Y, and Z axes.
+
+
+\begin{DoxyParams}{Parameters}
+{\em d} & A pointer to the \doxylink{structmodel__data}{model\+\_\+data} struct containing the vertices. \\
+\hline
+{\em value\+\_\+x} & The translation value along the X axis. \\
+\hline
+{\em value\+\_\+y} & The translation value along the Y axis. \\
+\hline
+{\em value\+\_\+z} & The translation value along the Z axis. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{s21__affine__transform_8c_a6c538ccb1af30a94e8454e247e57cf01}\label{s21__affine__transform_8c_a6c538ccb1af30a94e8454e247e57cf01} 
+\index{s21\_affine\_transform.c@{s21\_affine\_transform.c}!rotate@{rotate}}
+\index{rotate@{rotate}!s21\_affine\_transform.c@{s21\_affine\_transform.c}}
+\doxysubsubsection{\texorpdfstring{rotate()}{rotate()}}
+{\footnotesize\ttfamily void rotate (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structmodel__data}{model\+\_\+data}} \texorpdfstring{$\ast$}{*}}]{d,  }\item[{double}]{value\+\_\+angle,  }\item[{int}]{flag }\end{DoxyParamCaption})}
+
+
+
+Rotates the model vertices around a specified axis. 
+
+This function rotates the model vertices around the specified axis by the given angle.
+
+
+\begin{DoxyParams}{Parameters}
+{\em d} & A pointer to the \doxylink{structmodel__data}{model\+\_\+data} struct containing the vertices. \\
+\hline
+{\em value\+\_\+angle} & The rotation angle in radians. \\
+\hline
+{\em flag} & The rotation axis flag\+: 1 for X, 2 for Y, 3 for Z. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{s21__affine__transform_8c_a161b45c0579f3966ec4e8ea77b7d87bb}\label{s21__affine__transform_8c_a161b45c0579f3966ec4e8ea77b7d87bb} 
+\index{s21\_affine\_transform.c@{s21\_affine\_transform.c}!scaling@{scaling}}
+\index{scaling@{scaling}!s21\_affine\_transform.c@{s21\_affine\_transform.c}}
+\doxysubsubsection{\texorpdfstring{scaling()}{scaling()}}
+{\footnotesize\ttfamily void scaling (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structmodel__data}{model\+\_\+data}} \texorpdfstring{$\ast$}{*}}]{d,  }\item[{double}]{value }\end{DoxyParamCaption})}
+
+
+
+Scales the model vertices uniformly. 
+
+This function scales the model vertices by the specified scaling factor.
+
+
+\begin{DoxyParams}{Parameters}
+{\em d} & A pointer to the \doxylink{structmodel__data}{model\+\_\+data} struct containing the vertices. \\
+\hline
+{\em value} & The scaling factor. \\
+\hline
+\end{DoxyParams}
