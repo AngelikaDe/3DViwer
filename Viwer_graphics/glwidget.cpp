@@ -8,7 +8,21 @@ GLWidget::GLWidget(QWidget * parent)
 }
 
 GLWidget::~GLWidget(){
-//    delete &data_model;
+    create_settings();
+    if (data_model.triangle_coord) {
+        delete[] data_model.triangle_coord;
+        data_model.triangle_coord = nullptr;
+    }
+
+    if (data_model.square_coord) {
+        delete[] data_model.square_coord;
+        data_model.square_coord = nullptr;
+    }
+
+    if (data_model.vertices) {
+        delete[] data_model.vertices;
+        data_model.vertices = nullptr;
+    }
 }
 
 void GLWidget::initializeGL()
@@ -23,13 +37,12 @@ void GLWidget::initializeGL()
     projection = projection_now = 0;
     create_gif_status = 0;
     create_jpeg_status = 0;
-    read_settings();
     parse();
+    read_settings();
 }
 
 void GLWidget::paintGL()
 {
-   create_settings();
    update_view();
    rotate_translate();
 
@@ -119,6 +132,11 @@ void GLWidget::parse(){
 void GLWidget::create_settings(){
     QSettings settings("MyViwer");
 
+    settings.setValue("scale", scale);
+    settings.setValue("projection", projection);
+    settings.setValue("size_lines", l_size);
+    settings.setValue("projection_dots", display_methode); //projection_dots
+    settings.setValue("line_projection", line_projection); // line_projection
 
     settings.setValue("color_back_blue", back_blue); // backgound
     settings.setValue("color_back_red", back_red);
@@ -131,14 +149,10 @@ void GLWidget::create_settings(){
     settings.setValue("color_dots_red", v_red); // vert_color
     settings.setValue("color_dots_blue", v_blue);
     settings.setValue("color_dots_green", v_green);
-
-    settings.setValue("projection_dots", display_methode); //projection_dots
-    settings.setValue("line_projection", line_projection); // line_projection
 }
 
 void GLWidget::read_settings(){
     QSettings settings("MyViwer"); //read settings
-
     back_blue = settings.value("color_back_blue").toDouble();
     back_red = settings.value("color_back_read").toDouble();
     back_green = settings.value("color_back_green").toDouble();
@@ -151,8 +165,6 @@ void GLWidget::read_settings(){
     v_green = settings.value("color_dots_green").toDouble();
     v_red = settings.value("color_dots_red").toDouble();
 
-    display_methode = settings.value("projection_dots").toInt();
-    line_projection = settings.value("line_projection").toInt();
 }
 
 

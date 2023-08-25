@@ -1,40 +1,16 @@
 #include "s21_parser.h"
-void printData(const model_data *d) {
-  printf("Vertices:\n");
-  for (unsigned i = 0; i < d->vertices_count; i++) {
-    printf("Vertex %u: %.1f %.1f %.1f\n", i, d->vertices[i * 3],
-           d->vertices[i * 3 + 1], d->vertices[i * 3 + 2]);
-  }
-
-  printf("\nTriangle Coordinates:\n");
-  for (unsigned i = 0; i < d->triangle_cnt; i++) {
-    printf("Triangle %u: %d %d %d\n", i, d->triangle_coord[i * 3],
-           d->triangle_coord[i * 3 + 1], d->triangle_coord[i * 3 + 2]);
-  }
-
-  printf("\nSquare Coordinates:\n");
-  for (unsigned i = 0; i < d->square_cnt; i++) {
-    printf("Square %u: %u %u %u %u\n", i, d->square_coord[i * 4],
-           d->square_coord[i * 4 + 1], d->square_coord[i * 4 + 2],
-           d->square_coord[i * 4 + 3]);
-  }
-}
 
 int parser(model_data *data, const char *file_name) {
-  printf("FILENAME %s\n", file_name);
   FILE *fptr = NULL;
   fptr = fopen(file_name, "r");
-  printf("File pointer value: %p\n", (void *)fptr);
   if (fptr == NULL) {
     fclose(fptr);
-    printf("error\n");
     return 1;
   }
   char buffer[256];
   while (fgets(buffer, sizeof(buffer), fptr) != NULL) {
     if (buffer[0] == 'v' && buffer[1] == ' ') {
       data->vertices_count += 1;
-      // printf("Vertices: %d\n", data->vertices_count);
     } else if (buffer[0] == 'f' && buffer[1] == ' ') {
       const char *delim = " ";
       char *tok = strtok(buffer, delim);
@@ -49,21 +25,16 @@ int parser(model_data *data, const char *file_name) {
       }
       if (i == 3) {
         data->triangle_cnt += 1;
-        // printf("triangle_cn: %d\n", data->triangle_cnt);
       } else if (i == 4) {
         data->square_cnt += 1;
-        // printf("square_cn: %d\n", data->square_cnt);
 
       } else {
         i = 0;
-        // return 1;
       }
       i = 0;
     }
   }
   fclose(fptr);
-  // printf("Here: %d, %d, %d \n", data->square_cnt, data->square_cnt,
-  //        data->vertices_count);
   data->vertices = calloc(data->vertices_count, 3 * sizeof(double));
   data->square_coord = calloc(data->square_cnt, 4 * sizeof(int));
   data->triangle_coord = calloc(data->triangle_cnt, 3 * sizeof(int));
@@ -87,7 +58,7 @@ int parser(model_data *data, const char *file_name) {
       const char *delim = " ";
       char *tok = strtok(buffer, delim);
       int i = 0;
-      int extracted_number[4] = {0};
+      int extracted_number[50] = {0};
       while (tok != NULL) {
         if (sscanf(tok, "%d", &extracted_number[i]) == 1) {
           i += 1;
@@ -107,13 +78,12 @@ int parser(model_data *data, const char *file_name) {
           new_square_count += 1;
         }
       } else {
-        return 1;
+        i = 0;
       }
       i = 0;
     }
   }
   centr(data);
-  // printData(data);
   return 0;
 }
 

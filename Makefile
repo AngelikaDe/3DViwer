@@ -19,6 +19,31 @@ test:
 	$(CC) $(CFLAGS) -lcheck -lm -lpthread tests.c $(SRCS) -o test
 	./test
 
+install:
+	[ -d build ] || mkdir -p build
+	cd build && qmake ../Viewer
+	make -C ./build/
+	@rm $(addprefix ./build/, *.cpp *.h *.o Makefile)
+
+dist: uninstall
+	cd ../ && tar -cf Viewer.tar src
+
+run: install open
+
+open:
+	open build/Viewer.app
+
+creator:
+	open Viewer/Viewer.pro
+
+beautify:
+	clang-format -i *.c *.h --style=Google
+style:
+	clang-format -n *.c *.h --style=Google
+dvi:
+	doxygen ./Doxyfile
+	open html/index.html
+
 gcov_report:
 	$(CC) $(CFLAGS) -fprofile-arcs -ftest-coverage  $(SRCS) tests.c -pthread -lcheck -pthread -lm -o test
 	./test

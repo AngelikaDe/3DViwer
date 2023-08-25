@@ -16,4 +16,3 @@ void centr(model_data *d);
 void move_obj(model_data *d, double value_x, double value_y, double value_z);
 void scaling(model_data *d, double value);
 void rotate(model_data *d, double value_angle, int flag);
-void printData(const model_data *d);  // delete later

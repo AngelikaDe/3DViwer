@@ -6,6 +6,33 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    QSettings settings("MyViwer");
+    if (settings.value("projection").toInt() == 0) {
+        ui->central_radioButton->setChecked(true);
+    } else {
+        ui->parallel_radioButton->setChecked(true);
+    }
+
+    if (settings.value("line_projection").toInt() == 1) {
+        ui->solid_radioButton->setChecked(true);
+    } else {
+        ui->solid_radioButton->setChecked(true);
+    }
+
+    if (settings.value("display_methode").toInt() == 1) {
+        ui->display_circle_radioButton->setChecked(true);
+    } else if (settings.value("display_methode").toInt() == 2) {
+        ui->display_square_radioButton->setChecked(true);
+    } else {
+        ui->display_none_radioButton->setChecked(true);
+    }
+
+    double savedScale = settings.value("scale").toDouble();
+    ui->scale_SpinBox->setValue(savedScale);
+    int savedSizeLines = settings.value("size_lines").toInt();
+    ui->thickness_horizontalSlider->setValue(savedSizeLines);
+
+
 }
 
 MainWindow::~MainWindow()

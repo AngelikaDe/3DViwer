@@ -35,9 +35,9 @@ public:
     double l_green;
     double l_blue;
     double l_size;
-    double back_blue = 1;
-    double back_red = 1;
-    double back_green = 1;
+    double back_blue;
+    double back_red;
+    double back_green;
     double scale;
     double scale_curr;
     int projection; // 1 - parallel, 0 - central
